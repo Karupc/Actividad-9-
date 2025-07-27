@@ -1,0 +1,22 @@
+def agregar_pelicula(peliculas):
+    cantidad_peliculas = int(input("Ingrese la cantidad de películas que agregará: "))
+    for i in range(cantidad_peliculas):
+        print(f"Película {i+1}:")
+        titulo = input("Ingrese el título de la pelicula: ")
+        anio = input("Ingrese el año en el que se estrenó: ")
+        genero = input("Ingrese el género de la película: ")
+        pelicula = [titulo, anio, genero]
+        peliculas.append(pelicula)
+peliculas = []
+while True:
+    print("\n---BIENVENID@ AL MENÚ DE GESTOR DE PELÍCULAS---\n"
+          "1.- Agregar películas\n"
+          "2.- Mostrar todas las películas registradas\n"
+          "3.- Buscar películas por género\n"
+          "4.- Eliminar una película por título\n"
+          "5.- Ver estadísticas del catálogo\n"
+          "6.- Salir del programa")
+    opciones = input("Por favor escriba el número de la opción que desea seleccionar: ")
+    match opciones:
+        case "1":
+            agregar_pelicula(peliculas)
