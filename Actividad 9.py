@@ -4,7 +4,7 @@ def agregar_pelicula(peliculas):
         print(f"Película {i+1}:")
         titulo = input("Ingrese el título de la pelicula: ")
         anio = input("Ingrese el año en el que se estrenó: ")
-        genero = input("Ingrese el género de la película: ")
+        genero = input("Ingrese el género de la película: ").lower()
         pelicula = [titulo, anio, genero]
         peliculas.append(pelicula)
 def mostrar_peliculas(peliculas):
@@ -25,14 +25,30 @@ def buscar_genero(peliculas):
     if contador == 0:
         print("No hay registradas películas con ese género")
 def eliminar_titulo(peliculas):
-    titulo = input("Ingrese el título de la película a eliminar de forma exacta: ")
+    titulo = input("Ingrese el título de la película a eliminar de forma exacta: ").strip().lower()
     for t in peliculas:
         if t[0].lower() == titulo.lower():
             peliculas.remove(t)
             print("Película eliminada, con éxito")
             return
     print("No se encontró ninguna película con ese título")
-
+def estadisticas_peliculas(peliculas):
+    print(f"\nTotal de películas: {len(peliculas)}")
+    generos = []
+    print("Películas por género:")
+    for p in peliculas:
+        if p[2] not in generos:
+            generos.append(p[2])
+            cantidad = 0
+            for x in peliculas:
+                if x[2] == p[2]:
+                    cantidad += 1
+            print(f"{p[2].capitalize()}: {cantidad}")
+    if peliculas:
+        mas_antigua = peliculas[0]
+        for p in peliculas:
+            if p[1] < mas_antigua[1]:
+                mas_antigua = p
         print(f"Película más antigua es: {mas_antigua[0]} ({mas_antigua[1]})")
 peliculas = []
 while True:
@@ -53,3 +69,10 @@ while True:
             buscar_genero(peliculas)
         case "4":
             eliminar_titulo(peliculas)
+        case "5":
+            estadisticas_peliculas(peliculas)
+        case "6":
+            print("Programa terminado, muchas gracias por utilizarlo")
+            break
+        case _:
+            print("Opción no válida, ingrese de nuevo")
