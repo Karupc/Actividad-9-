@@ -7,6 +7,13 @@ def agregar_pelicula(peliculas):
         genero = input("Ingrese el género de la película: ")
         pelicula = [titulo, anio, genero]
         peliculas.append(pelicula)
+def mostrar_peliculas(peliculas):
+    if not peliculas:
+        print("No hay películas guardadas")
+    else:
+        print("\nPelículas:")
+        for p in peliculas:
+            print(f"Título: {p[0]}, Año: {p[1]}, Género: {p[2]}")
 peliculas = []
 while True:
     print("\n---BIENVENID@ AL MENÚ DE GESTOR DE PELÍCULAS---\n"
@@ -20,3 +27,5 @@ while True:
     match opciones:
         case "1":
             agregar_pelicula(peliculas)
+        case "2":
+            mostrar_peliculas(peliculas)
