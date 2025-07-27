@@ -14,6 +14,16 @@ def mostrar_peliculas(peliculas):
         print("\nPelículas:")
         for p in peliculas:
             print(f"Título: {p[0]}, Año: {p[1]}, Género: {p[2]}")
+def buscar_genero(peliculas):
+    genero = input("Ingrese el género a buscar: ").lower()
+    print(f"\nPelículas del género '{genero}':")
+    contador = 0
+    for p in peliculas:
+        if p[2] == genero:
+            print(f"Título: {p[0]}, Año: {p[1]}")
+            contador += 1
+    if contador == 0:
+        print("No hay registradas películas con ese género")
 peliculas = []
 while True:
     print("\n---BIENVENID@ AL MENÚ DE GESTOR DE PELÍCULAS---\n"
@@ -29,3 +39,7 @@ while True:
             agregar_pelicula(peliculas)
         case "2":
             mostrar_peliculas(peliculas)
+        case "3":
+            buscar_genero(peliculas)
+        case "4":
+            eliminar_titulo(peliculas)
