@@ -24,6 +24,16 @@ def buscar_genero(peliculas):
             contador += 1
     if contador == 0:
         print("No hay registradas películas con ese género")
+def eliminar_titulo(peliculas):
+    titulo = input("Ingrese el título de la película a eliminar de forma exacta: ")
+    for t in peliculas:
+        if t[0].lower() == titulo.lower():
+            peliculas.remove(t)
+            print("Película eliminada, con éxito")
+            return
+    print("No se encontró ninguna película con ese título")
+
+        print(f"Película más antigua es: {mas_antigua[0]} ({mas_antigua[1]})")
 peliculas = []
 while True:
     print("\n---BIENVENID@ AL MENÚ DE GESTOR DE PELÍCULAS---\n"
